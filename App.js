@@ -1,3 +1,4 @@
+// different tools being imported into the project(Ignore for now)
 import React, {useEffect, useLayoutEffect,useState} from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, ActivityIndicator, Image, TextInput } from 'react-native';
@@ -14,17 +15,19 @@ export default function App() {
   return (
     <View style={styles.container}>
 
-
-
       {/* Image or logo being added here */}
+      
       <Image 
       source = {require('./img/crop_logo.png')}
       style = {styles.image}
       />
+
       {/* Default text which comes with the react native installation package */}
+      
       <Text>something for now</Text>
 
-
+    {/* Input for the users email address */}
+    
     <View style={styles.inputView}>
       <TextInput 
       style={styles.TextInput}
@@ -32,12 +35,15 @@ export default function App() {
       placeholderTextColor='black'
       onChangeText={(email)=> setEmail(email)}/>
     </View>
+    
+    {/* Input for the users password */}
+    
     <View style={styles.inputView}>
       <TextInput 
       style={styles.TextInput}
       placeholder='Password'
       placeholderTextColor='black'
-      secureTextEntry={true}
+      secureTextEntry={true}// Allows the user's text to be hidden 
       onChangeText={(password)=> setPassword(password)}/>
     </View>
       <StatusBar style="auto" />
