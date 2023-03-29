@@ -4,10 +4,10 @@
     "slug": "test_weather_app_crop",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./img/icon.png",
     "userInterfaceStyle": "light",
     "splash": {
-      "image": "./assets/splash.png",
+      "image": "./img/splash.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
