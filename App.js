@@ -54,6 +54,10 @@ export default function App() {
       <TouchableOpacity>
         <Text style={styles.forgt_button}>Forgot Password</Text>
       </TouchableOpacity>
+      <TouchableOpacity style={styles.login_Button}>
+        <Text style={styles.login_Text}>Login</Text>
+      </TouchableOpacity>
+        
     </View>
       <StatusBar style="auto" />
     </View>
@@ -74,7 +78,7 @@ const styles = StyleSheet.create({
   },
   inputView: {
     backgroundColor:'grey',
-    borderRadius: 20,
+    borderRadius: 12,
     width:'70%',
     height: 45,
     marginBottom:20,
@@ -84,10 +88,19 @@ const styles = StyleSheet.create({
     height:50,
     flex:1,
     padding:10,
-    marginLeft:20,
+    marginLeft:-2,
   },
   forgt_button:{
     height:30,
     marginBottom:30,
+  },
+  login_Button:{
+    width:'80%',
+    borderRadius: 12,
+    height:50,
+    alignItems:'center',
+    justifyContent:'center',
+    // marginTop: 10,
+    backgroundColor:'#609966'
   }
 });
