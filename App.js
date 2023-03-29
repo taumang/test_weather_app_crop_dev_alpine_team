@@ -8,7 +8,7 @@ import {createStackNavigation} from '@react-navigation/stack';
 export default function App() {
 
   //Two states which are added for the password and email inputs from the user.
-  const [emil,setEmail] = useState('');
+  const [email,setEmail] = useState('');
   const [password,setPassword] = useState('');
 
   return (
@@ -45,6 +45,7 @@ export default function App() {
   );
 }
 
+//This is the CSS of this whole project!!
 const styles = StyleSheet.create({
   container: {
     flex: 1,
