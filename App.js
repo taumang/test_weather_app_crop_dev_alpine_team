@@ -5,6 +5,8 @@ import { StyleSheet, Text, View, ActivityIndicator, Image, TextInput } from 'rea
 import { useNavigation, NavigationContainer } from '@react-navigation/native';
 import * as SplashScreen from 'expo-splash-screen';
 import {createStackNavigation} from '@react-navigation/stack';
+import { Touchable } from 'react-native';
+import { TouchableOpacity } from 'react-native-gesture-handler';
 
 export default function App() {
 
@@ -46,6 +48,13 @@ export default function App() {
       secureTextEntry={true}// Allows the user's text to be hidden 
       onChangeText={(password)=> setPassword(password)}/>
     </View>
+
+    {/* Adding a forgot password link/button */}
+    <View>
+      <TouchableOpacity>
+        <Text style={styles.forgt_button}>Forgot Password</Text>
+      </TouchableOpacity>
+    </View>
       <StatusBar style="auto" />
     </View>
   );
@@ -76,5 +85,9 @@ const styles = StyleSheet.create({
     flex:1,
     padding:10,
     marginLeft:20,
+  },
+  forgt_button:{
+    height:30,
+    marginBottom:30,
   }
 });
