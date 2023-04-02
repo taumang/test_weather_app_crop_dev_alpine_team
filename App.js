@@ -1,7 +1,7 @@
 // different tools being imported into the project(Ignore for now)
 import React, {useEffect, useLayoutEffect,useState} from 'react';
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, ActivityIndicator, Image, TextInput } from 'react-native';
+import { StyleSheet, Text, View, ActivityIndicator, Image, TextInput, Button, Alert } from 'react-native';
 import { useNavigation, NavigationContainer } from '@react-navigation/native';
 import * as SplashScreen from 'expo-splash-screen';
 import {createStackNavigation} from '@react-navigation/stack';
@@ -10,9 +10,11 @@ import { TouchableOpacity } from 'react-native-gesture-handler';
 
 export default function App() {
 
-  //Two states which are added for the password and email inputs from the user.
+  //Two states which are added for the password and email inputs from the user.(LOGIN)
   const [email,setEmail] = useState('');
   const [password,setPassword] = useState('');
+
+
 
   return (
     <View style={styles.container}>
@@ -32,7 +34,7 @@ export default function App() {
     
     <View style={styles.inputView}>
       <TextInput 
-      style={styles.TextInput}
+      style={styles.TextInput1}
       placeholder='Email'
       placeholderTextColor='black'
       onChangeText={(email)=> setEmail(email)}/>
@@ -42,7 +44,7 @@ export default function App() {
     
     <View style={styles.inputView}>
       <TextInput 
-      style={styles.TextInput}
+      style={styles.TextInput2}
       placeholder='Password'
       placeholderTextColor='black'
       secureTextEntry={true}// Allows the user's text to be hidden 
@@ -52,18 +54,28 @@ export default function App() {
     {/* Adding a forgot password link/button */}
     <View>
       <TouchableOpacity>
-        <Text style={styles.forgt_button}>Forgot Password</Text>
+        <Text style={styles.forgot_button}>Forgot Password</Text>
       </TouchableOpacity>
-      <TouchableOpacity style={styles.login_Button}>
-        <Text style={styles.login_Text}>Login</Text>
-      </TouchableOpacity>
-        
+      
+      <Button
+      title='Login_button'
+      onPress={()=>Alert.alert('Next page active')} // This is just a simple placeholder button to check, if click is there a message that pops up.
+      
+      style={styles.login_Button}
+      >
+        <TouchableOpacity >
+          <Text style={styles.login_Text}>Login</Text>
+        </TouchableOpacity>
+      </Button>
     </View>
       <StatusBar style="auto" />
     </View>
   );
 }
-
+//
+//
+//
+//
 //This is the CSS of this whole project!!
 const styles = StyleSheet.create({
   container: {
@@ -84,13 +96,19 @@ const styles = StyleSheet.create({
     marginBottom:20,
     alignItems:'center'
   },
-  TextInput:{
+  TextInput1:{
     height:50,
     flex:1,
     padding:10,
-    marginLeft:-2,
+    marginLeft:0,
   },
-  forgt_button:{
+  TextInput2:{
+    height:50,
+    flex:1,
+    padding:10,
+    marginRight:1,
+  },
+  forgot_button:{
     height:30,
     marginBottom:30,
   },
