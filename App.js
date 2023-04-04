@@ -11,10 +11,20 @@ import { TouchableOpacity } from 'react-native-gesture-handler';
 export default function App() {
 
   //Two states which are added for the password and email inputs from the user.(LOGIN)
+  
   const [email,setEmail] = useState('');
   const [password,setPassword] = useState('');
+  
+  // added conditional to the login button 
+  handle_Login = () => {
 
-
+      if (email === 'something@company.com' && password === 'pass012'){
+      alert('Logged In')
+      }else {
+      alert('Invalid email or password')
+      }
+    }
+  //
 
   return (
     <View style={styles.container}>
@@ -37,7 +47,7 @@ export default function App() {
       style={styles.TextInput1}
       placeholder='Email'
       placeholderTextColor='black'
-      onChangeText={(email)=> setEmail(email)}/>
+      onChangeText={setEmail}/>
     </View>
     
     {/* Input for the users password */}
@@ -48,7 +58,7 @@ export default function App() {
       placeholder='Password'
       placeholderTextColor='black'
       secureTextEntry={true}// Allows the user's text to be hidden 
-      onChangeText={(password)=> setPassword(password)}/>
+      onChangeText={setPassword}/>
     </View>
 
     {/* Adding a forgot password link/button */}
@@ -59,7 +69,7 @@ export default function App() {
       
       <Button
       title='Login_button'
-      onPress={()=>Alert.alert('Next page active')} // This is just a simple placeholder button to check, if click is there a message that pops up.
+      onPress={handle_Login} // should render the text from login and password.
       
       style={styles.login_Button}
       >
@@ -67,8 +77,18 @@ export default function App() {
           <Text style={styles.login_Text}>Login</Text>
         </TouchableOpacity>
       </Button>
+
+
+      
     </View>
+      <TouchableOpacity>
+        <Text style={styles.sign_up_link_text}>not a member? sign up here</Text>
+      </TouchableOpacity>
+
+
       <StatusBar style="auto" />
+
+
     </View>
   );
 }
@@ -110,7 +130,10 @@ const styles = StyleSheet.create({
   },
   forgot_button:{
     height:30,
-    marginBottom:30,
+    marginBottom:20,
+  },
+  sign_up_link_text:{
+
   },
   login_Button:{
     width:'80%',
@@ -118,7 +141,7 @@ const styles = StyleSheet.create({
     height:50,
     alignItems:'center',
     justifyContent:'center',
-    // marginTop: 10,
+     marginBottom: 10,
     backgroundColor:'#609966'
   }
 });
