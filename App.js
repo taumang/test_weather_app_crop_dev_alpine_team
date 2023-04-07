@@ -1,10 +1,10 @@
 // different tools being imported into the project(Ignore for now)
 import React, {useEffect, useLayoutEffect,useState} from 'react';
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, ActivityIndicator, Image, TextInput, Button, Alert } from 'react-native';
-import { useNavigation, NavigationContainer } from '@react-navigation/native';
+import { StyleSheet, Text, View, ActivityIndicator, Image, TextInput, Button, Alert, TouchableHighlight } from 'react-native';
+import { useNavigation, NavigationContainer, } from '@react-navigation/native';
 import * as SplashScreen from 'expo-splash-screen';
-import {createStackNavigation} from '@react-navigation/stack';
+import {createStackNavigation, } from '@react-navigation/stack';
 import { Touchable } from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 
@@ -25,6 +25,10 @@ export default function App() {
       }
     }
   //
+
+const goToNextPage = () => {
+  navigation.navigate('NextPage') //allows the user to go to the next page (this is just a placeholder)
+}
 
   return (
     <View style={styles.container}>
@@ -81,9 +85,9 @@ export default function App() {
 
       
     </View>
-      <TouchableOpacity>
+      <TouchableHighlight onPress={goToNextPage}>
         <Text style={styles.sign_up_link_text}>not a member? sign up here</Text>
-      </TouchableOpacity>
+      </TouchableHighlight>
 
 
       <StatusBar style="auto" />
