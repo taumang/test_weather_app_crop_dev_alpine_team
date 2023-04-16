@@ -1,12 +1,12 @@
 // different tools being imported into the project(Ignore for now)
 import React, {useEffect, useLayoutEffect,useState} from 'react';
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, ActivityIndicator, Image, TextInput, Button, Alert, TouchableHighlight } from 'react-native';
-import { useNavigation, NavigationContainer, } from '@react-navigation/native';
+import { TouchableOpacity,StyleSheet, Text, View, ActivityIndicator, Image, TextInput, Button, Alert, TouchableHighlight } from 'react-native';
+import {useNavigation} from '@react-navigation/native';
 import * as SplashScreen from 'expo-splash-screen';
 import {createStackNavigation, } from '@react-navigation/stack';
 import { Touchable } from 'react-native';
-import { TouchableOpacity } from 'react-native-gesture-handler';
+
 
 export default function App() {
 
@@ -25,9 +25,10 @@ export default function App() {
       }
     }
   //
+const navigation = useNavigation();
 
 const goToNextPage = () => {
-  navigation.navigate('NextPage') //allows the user to go to the next page (this is just a placeholder)
+  navigation.navigate('./components/highlighted_text/nextpage.js'); //allows the user to go to the next page (this is just a placeholder)
 }
 
   return (
@@ -82,12 +83,11 @@ const goToNextPage = () => {
         </TouchableOpacity>
       </Button>
 
-
-      
-    </View>
-      <TouchableHighlight onPress={goToNextPage}>
+{/* clickable text which leads to the next page  (currently not working) */}
+      <TouchableOpacity onPress={goToNextPage}>
         <Text style={styles.sign_up_link_text}>not a member? sign up here</Text>
-      </TouchableHighlight>
+      </TouchableOpacity>
+    </View>
 
 
       <StatusBar style="auto" />
@@ -137,7 +137,10 @@ const styles = StyleSheet.create({
     marginBottom:20,
   },
   sign_up_link_text:{
-
+    color: '#609966',
+    textDecorationLine: 'underline',
+    fontSize: 16,
+    marginTop: 20,
   },
   login_Button:{
     width:'80%',
