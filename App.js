@@ -2,11 +2,13 @@
 import React, {useEffect, useLayoutEffect,useState} from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { TouchableOpacity,StyleSheet, Text, View, ActivityIndicator, Image, TextInput, Button, Alert, TouchableHighlight } from 'react-native';
-import {useNavigation} from '@react-navigation/native';
+import {NavigationContainer, useNavigation} from '@react-navigation/native';
 import * as SplashScreen from 'expo-splash-screen';
-import {createStackNavigation, } from '@react-navigation/stack';
+import {createStackNavigator } from '@react-navigation/stack';
 import { Touchable } from 'react-native';
 
+
+const Stack = createStackNavigator();
 
 export default function App() {
 
@@ -28,7 +30,7 @@ export default function App() {
 const navigation = useNavigation();
 
 const goToNextPage = () => {
-  navigation.navigate('./components/highlighted_text/nextpage.js'); //allows the user to go to the next page (this is just a placeholder)
+  navigation.navigate('nextpage'); //allows the user to go to the next page (this is just a placeholder)
 }
 
   return (
@@ -84,11 +86,15 @@ const goToNextPage = () => {
       </Button>
 
 {/* clickable text which leads to the next page  (currently not working) */}
-      <TouchableOpacity onPress={goToNextPage}>
+    <NavigationContainer>
+      <Stack.Navigator>
+        <TouchableOpacity onPress={goToNextPage}>
         <Text style={styles.sign_up_link_text}>not a member? sign up here</Text>
-      </TouchableOpacity>
-    </View>
+        </TouchableOpacity>
+      </Stack.Navigator>
+    </NavigationContainer>
 
+    </View>
 
       <StatusBar style="auto" />
 

@@ -4,10 +4,9 @@ import { TouchableOpacity, Text } from 'react-native'
 const nextpage = () => {
   return (
     
-        <Text>
-            New Page
-
-        </Text>
+    <div>
+      
+    </div>
     
   )
 }
